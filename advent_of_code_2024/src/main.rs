@@ -11,6 +11,8 @@ mod advent_of_code {
     pub mod day05_print_queue;
     #[cfg(feature = "Day06")]
     pub mod day06_guard_gallivant;
+
+    pub mod day07_bridge_repair;
 }
 
 fn main() {
@@ -47,4 +49,7 @@ fn main() {
         println!("\tPart 1: {}",advent_of_code::day06_guard_gallivant::part1());
         println!("\tPart 2: {}",advent_of_code::day06_guard_gallivant::part2());
     }
+
+    advent_of_code::day07_bridge_repair::part1();
+    advent_of_code::day07_bridge_repair::part2();
 }
