@@ -80,7 +80,7 @@ fn merge(left_arr: &Vec::<i32>, right_arr: &Vec::<i32>) -> Vec::<i32> {
 // ===========================================================================================================================================
 
 pub fn part1() -> i32 {
-    let (mut l1, mut l2) = read_inputs(Path::new("input/day01"));
+    let (mut l1, mut l2) = read_inputs(Path::new("input/day01.txt"));
     l1 = merge_sort(&l1);
     l2 = merge_sort(&l2);
 

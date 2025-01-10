@@ -51,7 +51,7 @@ fn safe_dampner(arr: &[i32]) -> bool {
 // ===========================================================================================================================================
 
 pub fn part1() -> i32 {
-    let res = read_inputs(Path::new("input/day02"));
+    let res = read_inputs(Path::new("input/day02.txt"));
 
     let diff: Vec<Vec<i32>> = res.iter().map(|v: &Vec<i32>| {
             v.windows(2)
