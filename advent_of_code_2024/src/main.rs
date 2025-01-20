@@ -11,8 +11,12 @@ mod advent_of_code {
     pub mod day05_print_queue;
     #[cfg(feature = "Day06")]
     pub mod day06_guard_gallivant;
-
+    #[cfg(feature = "Day07")]
     pub mod day07_bridge_repair;
+    #[cfg(feature = "Day08")]
+    pub mod day08_resonant_collinearity;
+
+    pub mod day09_disk_fragmenter;
 }
 
 fn main() {
@@ -50,6 +54,16 @@ fn main() {
         println!("\tPart 2: {}",advent_of_code::day06_guard_gallivant::part2());
     }
 
-    advent_of_code::day07_bridge_repair::part1();
-    advent_of_code::day07_bridge_repair::part2();
+    #[cfg(feature = "Day07")] {
+        advent_of_code::day07_bridge_repair::part1();
+        advent_of_code::day07_bridge_repair::part2();
+    }
+
+    #[cfg(feature = "Day08")] {
+        advent_of_code::day08_resonant_collinearity::part1();
+        advent_of_code::day08_resonant_collinearity::part2();
+    }
+
+    advent_of_code::day09_disk_fragmenter::part1();
+    advent_of_code::day09_disk_fragmenter::part2();
 }

@@ -7,10 +7,13 @@ edition = "2021"
 default = []
 Day01 = []
 Day02 = []
-Day03 = ["regex"]
+Day03 = ["dep:regex"]
 Day04 = []
 Day05 = []
 Day06 = []
+Day07 = []
+Day08 = ["dep:itertools"]
 
 [dependencies]
 regex = {version = "1.11.1", optional = true}
+itertools = {version = "0.14.0", optional = true}
