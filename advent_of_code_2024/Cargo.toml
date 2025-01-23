@@ -13,6 +13,7 @@ Day05 = []
 Day06 = []
 Day07 = []
 Day08 = ["dep:itertools"]
+Day09 = []
 
 [dependencies]
 regex = {version = "1.11.1", optional = true}

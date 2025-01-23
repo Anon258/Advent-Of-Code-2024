@@ -15,8 +15,10 @@ mod advent_of_code {
     pub mod day07_bridge_repair;
     #[cfg(feature = "Day08")]
     pub mod day08_resonant_collinearity;
-
+    #[cfg(feature = "Day09")]
     pub mod day09_disk_fragmenter;
+
+    pub mod day10_hoof_it;
 }
 
 fn main() {
@@ -64,6 +66,12 @@ fn main() {
         advent_of_code::day08_resonant_collinearity::part2();
     }
 
-    advent_of_code::day09_disk_fragmenter::part1();
-    advent_of_code::day09_disk_fragmenter::part2();
+    #[cfg(feature = "Day09")] {
+        advent_of_code::day09_disk_fragmenter::part1();
+        advent_of_code::day09_disk_fragmenter::part2();
+    }
+
+    advent_of_code::day10_hoof_it::part1();
+    advent_of_code::day10_hoof_it::part2();
+
 }
