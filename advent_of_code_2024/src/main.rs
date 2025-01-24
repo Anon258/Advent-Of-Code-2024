@@ -17,8 +17,12 @@ mod advent_of_code {
     pub mod day08_resonant_collinearity;
     #[cfg(feature = "Day09")]
     pub mod day09_disk_fragmenter;
-
+    #[cfg(feature = "Day10")]
     pub mod day10_hoof_it;
+    #[cfg(feature = "Day11")]
+    pub mod day11_plutonian_pebbles;
+    #[cfg(feature = "Day12")]
+    pub mod day12_garden_groups;
 }
 
 fn main() {
@@ -71,7 +75,19 @@ fn main() {
         advent_of_code::day09_disk_fragmenter::part2();
     }
 
-    advent_of_code::day10_hoof_it::part1();
-    advent_of_code::day10_hoof_it::part2();
+    #[cfg(feature = "Day10")] {
+        advent_of_code::day10_hoof_it::part1();
+        advent_of_code::day10_hoof_it::part2();
+    }
+
+    #[cfg(feature = "Day11")] {
+        advent_of_code::day11_plutonian_pebbles::part1();
+        advent_of_code::day11_plutonian_pebbles::part2();
+    }
+
+    #[cfg(feature = "Day12")] {
+        advent_of_code::day12_garden_groups::part1();
+        advent_of_code::day12_garden_groups::part2();
+    }
 
 }
