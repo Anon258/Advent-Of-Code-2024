@@ -23,6 +23,10 @@ mod advent_of_code {
     pub mod day11_plutonian_pebbles;
     #[cfg(feature = "Day12")]
     pub mod day12_garden_groups;
+    #[cfg(feature = "Day13")]
+    pub mod day13_claw_contraption;
+    #[cfg(feature = "Day14")]
+    pub mod day14_restroom_redoubt;
 }
 
 fn main() {
@@ -88,6 +92,16 @@ fn main() {
     #[cfg(feature = "Day12")] {
         advent_of_code::day12_garden_groups::part1();
         advent_of_code::day12_garden_groups::part2();
+    }
+
+    #[cfg(feature = "Day13")] {
+        advent_of_code::day13_claw_contraption::part1();
+        advent_of_code::day13_claw_contraption::part2();
+    }
+
+    #[cfg(feature = "Day14")] {
+        advent_of_code::day14_restroom_redoubt::part1();
+        advent_of_code::day14_restroom_redoubt::part2();
     }
 
 }

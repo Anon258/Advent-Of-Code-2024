@@ -11,7 +11,7 @@ fn read_inputs(filename: &Path) -> (Vec<Vec<char>>, (usize, usize)) {
 
     let bounds = (grid.len(), grid[0].len());
     (grid, bounds)
-}
+} 
 const DIRS: [usize; 4] = [0,1,2,3];
 
 fn next(dir: &usize, pos: (usize, usize)) -> (usize, usize) {

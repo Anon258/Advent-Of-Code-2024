@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["Day12"]
+default = ["Day14"]
 Day01 = []
 Day02 = []
 Day03 = ["dep:regex"]
@@ -17,6 +17,8 @@ Day09 = []
 Day10 = []
 Day11 = []
 Day12 = []
+Day13 = []
+Day14 = []
 
 [dependencies]
 regex = {version = "1.11.1", optional = true}
