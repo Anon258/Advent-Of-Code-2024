@@ -87,6 +87,61 @@ fn move_step(current_pos: (usize, usize), dir: usize, grid: &mut Vec<Vec<char>>)
     }
 }
 
+fn next_pos(pos: (usize, usize), dir: usize) -> (usize, usize) {
+    ((pos.0 as i32 + DIRS[dir].0) as usize, (pos.1 as i32 + DIRS[dir].1) as usize)
+}
+
+fn check_move_possible(pos: (usize, usize), dir: usize, grid: &Vec<Vec<char>>) -> bool {
+
+    let new_pos = next_pos(pos, dir);
+
+    let (left, right) = match grid[new_pos.0][new_pos.1] {
+        '.' => return true,
+        '#' => return false,
+        '[' => (new_pos, (new_pos.0, new_pos.1 + 1)),
+        ']' => ((new_pos.0, new_pos.1 - 1), new_pos),
+        _ => unreachable!(),
+    };
+
+    let left_pos = next_pos(left, dir);
+
+    if DIRS[dir].0 == 0 {
+        return check_move_possible(new_pos, dir, grid)
+    } else if grid[left_pos.0][left_pos.1] == '[' {
+        return check_move_possible(left, dir, grid)
+    } else {
+        return check_move_possible(left, dir, grid) 
+                && check_move_possible(right, dir, grid)
+    }
+}
+
+fn move_boxes(pos: (usize, usize), dir: usize, grid: &mut Vec<Vec<char>>) {
+
+    let new_pos = next_pos(pos, dir);
+
+    let (left, right) = match grid[new_pos.0][new_pos.1] {
+        '.' => return,
+        '[' => (new_pos, (new_pos.0, new_pos.1 + 1)),
+        ']' => ((new_pos.0, new_pos.1 - 1), new_pos),
+        _ => unreachable!(),
+    };
+
+    if DIRS[dir].0 == 0 {
+        move_boxes(next_pos(new_pos, dir), dir, grid);
+    } else {
+        move_boxes(left, dir, grid); 
+        move_boxes(right, dir, grid);
+    }
+
+    let left_pos = next_pos(left, dir);
+    let right_pos = next_pos(right, dir);
+
+    grid[left.0][left.1] = '.'; 
+    grid[right.0][right.1] = '.'; 
+    grid[left_pos.0][left_pos.1] = '['; 
+    grid[right_pos.0][right_pos.1] = ']'; 
+}
+
 pub fn part1() {
     let (mut grid, path, mut start_pos) = read_inputs(Path::new("input/day15.txt"));
     for dir in path {
@@ -109,6 +164,36 @@ pub fn part1() {
 
 pub fn part2() {
     let (mut grid, path, mut start_pos) = read_inputs(Path::new("input/day15.txt"));
+    start_pos = (start_pos.0, start_pos.1 * 2);
     convert_grid(&mut grid);
-    print_grid(&grid);
+    // print_grid(&grid);
+
+    for dir in path {
+        // println!("Move: {}", dir);
+        let res = check_move_possible(start_pos, dir, &grid);
+        // println!("Move Possible: {}", res);
+        if res {
+            move_boxes(start_pos, dir, &mut grid);
+            grid[start_pos.0][start_pos.1] = '.';
+            start_pos = next_pos(start_pos, dir);
+            grid[start_pos.0][start_pos.1] = '@';
+        }
+        // print_grid(&grid);
+        // println!("");
+    }
+
+    // print_grid(&grid);
+
+    let mut r_sum = 0;
+    let mut c_sum = 0;
+    for i in 0..grid.len() {
+        for j in 0..grid[0].len() {
+            if grid[i][j] == '[' {
+                r_sum += i;
+                c_sum += j;
+            }
+        }
+    }
+
+    println!("{}", 100 * r_sum + c_sum);
 }
