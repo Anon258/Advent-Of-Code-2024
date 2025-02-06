@@ -27,6 +27,8 @@ mod advent_of_code {
     pub mod day13_claw_contraption;
     #[cfg(feature = "Day14")]
     pub mod day14_restroom_redoubt;
+    #[cfg(feature = "Day15")]
+    pub mod day15_warehouse_woes;
 }
 
 fn main() {
@@ -102,6 +104,11 @@ fn main() {
     #[cfg(feature = "Day14")] {
         advent_of_code::day14_restroom_redoubt::part1();
         advent_of_code::day14_restroom_redoubt::part2();
+    }
+
+    #[cfg(feature = "Day15")] {
+        advent_of_code::day15_warehouse_woes::part1();
+        advent_of_code::day15_warehouse_woes::part2();
     }
 
 }
