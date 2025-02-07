@@ -29,6 +29,8 @@ mod advent_of_code {
     pub mod day14_restroom_redoubt;
     #[cfg(feature = "Day15")]
     pub mod day15_warehouse_woes;
+    #[cfg(feature = "Day16")]
+    pub mod day16_reindeer_maze;
 }
 
 fn main() {
@@ -109,6 +111,11 @@ fn main() {
     #[cfg(feature = "Day15")] {
         advent_of_code::day15_warehouse_woes::part1();
         advent_of_code::day15_warehouse_woes::part2();
+    }
+
+    #[cfg(feature = "Day16")] {
+        advent_of_code::day16_reindeer_maze::part1();
+        advent_of_code::day16_reindeer_maze::part2();
     }
 
 }
